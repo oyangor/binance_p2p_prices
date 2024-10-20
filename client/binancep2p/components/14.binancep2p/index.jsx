@@ -14,7 +14,7 @@ function Binancep2p() {
 
   const fetchRecordedPrices = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/backend/models/data');
+      const response = await axios.get('https://binance-p2p-prices-1.onrender.com/backend/models/data');
       const prices = response.data;
 
       setRecordedPrices(prices);
@@ -86,7 +86,7 @@ function Binancep2p() {
       const currentTime = new Date().toLocaleTimeString();
 
       try {
-        await axios.post('http://localhost:5000/backend/models/data', {
+        await axios.post('https://binance-p2p-prices-1.onrender.com/backend/models/data', {
           time: currentTime,
           buy: buyPrice,
           sell: sellPrice,
@@ -102,7 +102,7 @@ function Binancep2p() {
 
   const deleteRecordedPrices = async () => {
     try {
-      const response = await axios.delete('http://localhost:5000/backend/models/data');
+      const response = await axios.delete('https://binance-p2p-prices-1.onrender.com/backend/models/data');
       console.log(response.data.message);
       setRecordedPrices([]);
       localStorage.removeItem("recordedPrices");
